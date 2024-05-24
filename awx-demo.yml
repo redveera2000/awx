@@ -4,5 +4,5 @@ kind: AWX
 metadata:
   name: awx-demo
 spec:
-  service_type: LoadBalancer
+  service_type: clusterip
   ingress_type: Route
