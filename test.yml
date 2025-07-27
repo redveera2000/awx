@@ -29,6 +29,7 @@
       command: df -h
       register: disk_output
 
+# this will show the disk usage
     - name: Show disk output
       debug:
         var: disk_output.stdout_lines
