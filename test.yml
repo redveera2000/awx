@@ -1,0 +1,33 @@
+---
+- name: Test play for Hello World
+  hosts: all
+  gather_facts: yes
+
+  vars:
+    word: "Hello world"
+
+  tasks:
+    - name: Run docker ps
+      command: docker ps -a
+      register: docker_output
+
+    - name: Show docker output
+      debug:
+        var: docker_output.stdout_lines
+
+    - name: Run htop (interactive command, not ideal)
+      command: top
+      ignore_errors: yes
+      register: top_output
+
+    - name: Show top output
+      debug:
+        var: top_output.stderr_lines
+
+    - name: Run df -h
+      command: df -h
+      register: disk_output
+
+    - name: Show disk output
+      debug:
+        var: disk_output.stdout_lines
