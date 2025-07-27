@@ -11,6 +11,7 @@
       command: docker ps -a
       register: docker_output
 
+# show the output of docker ps
     - name: Show docker output
       debug:
         var: docker_output.stdout_lines
